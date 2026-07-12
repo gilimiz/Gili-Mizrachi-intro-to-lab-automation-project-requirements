@@ -15,8 +15,8 @@
  - accelerometer - try to bring dot to center (or other side)
  - pressure - just note the pressure value below
  - temperature + humidity - when putting finger on the sensor temperature goes up
- - when does the led blink and when is it constant?
- - when does the buzzer play?
+ - when does the led blink and when is it constant? the led blinks when we do a long press
+ - when does the buzzer play? the buzzer plays when we are moving to the menu
 
 ## Git
  - fork this repo
@@ -26,7 +26,7 @@
  - push the file to your repo.
 
 ## Exercise
-- pressure value: 
-- led blinks when:
-- led is constant when:
-- buzzer plays when: 
+- pressure value: 100541.00Pa
+- led blinks when: we are doing a long press on the button
+- led is constant when: we are in the menu
+- buzzer plays when: we get to the menu
