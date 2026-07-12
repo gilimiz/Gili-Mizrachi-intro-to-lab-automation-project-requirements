@@ -22,7 +22,7 @@
   https://docs.arduino.cc/built-in-examples/basics/Blink/
 */
 int ledPin = 4;
-int delayTimeUs = 1;
+int delayTimeUs = 500;
 
 // the setup function runs once when you press reset or power the board
 void setup() {
