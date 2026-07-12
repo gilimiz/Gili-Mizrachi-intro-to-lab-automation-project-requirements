@@ -20,7 +20,7 @@ If using the AI agent, please write below what changes were done compared to the
 run code:
 
 - upload to arduino
-- can you see the led blink? Why?
+- can you see the led blink? Why? I can't see the led blink, because the delay is too fast and you can't even see it.
 
 ## Use logic analyzer to see and measure the blink
 
