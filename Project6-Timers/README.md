@@ -29,3 +29,4 @@ add a screen shot from the logic analyzer below:
 answer here: it's not 30ms! we don't know why
 paste a screen shot from the scope below:
 ![alt text](30msectrig_withcalc.png)
+![alt text](bouncing.png)
