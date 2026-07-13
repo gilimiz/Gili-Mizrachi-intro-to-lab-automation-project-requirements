@@ -9,7 +9,7 @@ void turnOffLed()
 {
   digitalWrite(ledPin, LOW);
   ledOn = false;
-  MsTimer2::stop();
+  //MsTimer2::stop();
 }
 
 void handleButtonPress()
@@ -18,7 +18,7 @@ void handleButtonPress()
   {
     ledOn = true;
     digitalWrite(ledPin, HIGH);
-    MsTimer2::set(30, turnOffLed);
+    
     MsTimer2::start();
   }
 }
@@ -31,7 +31,7 @@ void setup()
   pinMode(buttonPin, INPUT_PULLUP);
 
   digitalWrite(ledPin, LOW);
-
+  MsTimer2::set(30, turnOffLed);
   attachInterrupt(digitalPinToInterrupt(buttonPin), handleButtonPress, FALLING);
 }
 
