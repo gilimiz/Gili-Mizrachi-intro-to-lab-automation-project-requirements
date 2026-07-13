@@ -1,29 +1,33 @@
+#include <Servo.h>
+
 const int rotaryPin = A0;
-const int ledPin = 3;
+const int servoPin = 7;
+
+Servo myServo;
 
 void setup()
 {
   Serial.begin(9600);
-  pinMode(ledPin, OUTPUT);
+  myServo.attach(servoPin);
 }
 
 void loop()
 {
-  static int lastRotaryValue = -1;
+  static int lastAngle = -1;
 
   int rotaryValue = analogRead(rotaryPin);
+  int angle = map(rotaryValue, 0, 1023, 0, 180);
 
-  if (rotaryValue != lastRotaryValue)
+  if (angle != lastAngle)
   {
-    int pwmValue = map(rotaryValue, 0, 1023, 0, 255);
-    analogWrite(ledPin, pwmValue);
+    myServo.write(angle);
 
     Serial.print("Rotary: ");
     Serial.print(rotaryValue);
-    Serial.print(" -> PWM: ");
-    Serial.println(pwmValue);
+    Serial.print(" -> Angle: ");
+    Serial.println(angle);
 
-    lastRotaryValue = rotaryValue;
+    lastAngle = angle;
   }
 
   delay(50);
