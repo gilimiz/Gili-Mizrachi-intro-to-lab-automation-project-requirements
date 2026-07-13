@@ -15,16 +15,17 @@ answer here: the led doesn't turn on because the loop is too busy and doesn't pr
 add a screen shot from the logic analyzer below:
 ![alt text](5sectrig_withcalc.png)
 ## Write a second program. The proper way to solve this problem is to use a timer
-- install package mstimer2 from the library manager
-- read the readme file of the package and note the package limitations
-- open an example of the package, examine the code and its functions and how to use them.
-- implement a timer to turn off the LED after 5 seconds
-- note the callback in the timer. When is it called?
+- Install the MsTimer2 package from the Library Manager.
+- Read the package README and note its limitations: it uses Timer2 and is best for short periodic tasks.
+- Open an example from the package, examine the callback-based pattern, and see how the timer is started and stopped.
+- Implement a timer that turns off the LED after 5 seconds.
+- The callback runs when the configured timer interval expires. In this implementation, it is called once after 5000 ms and turns the LED off.
 
 ## Exercises
  - Comparison of AI changes if any:
 - check that although the delay of 1 second is still in the loop function, the LED now turns off after 5 seconds
 
 - change the LED time ON from 5 seconds to 30 ms, measure in the scope the time the LED is ON. is it 30 ms? Why or why not?
-answer here: __________
+answer here: it's not 30ms! we don't know why
 paste a screen shot from the scope below:
+![alt text](30msectrig_withcalc.png)

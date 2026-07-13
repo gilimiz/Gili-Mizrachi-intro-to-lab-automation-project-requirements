@@ -18,7 +18,7 @@ void handleButtonPress()
   {
     ledOn = true;
     digitalWrite(ledPin, HIGH);
-    MsTimer2::set(5000, turnOffLed);
+    MsTimer2::set(30, turnOffLed);
     MsTimer2::start();
   }
 }
