@@ -73,13 +73,8 @@ class FirmataApp:
             messagebox.showerror("Missing dependency", "pymata4 is required. Install with:\n  pip install pymata4")
             return
 
-        port = self.port_var.get().strip()
-        if not port:
-            messagebox.showwarning("Port required", "Enter a COM port, e.g. COM4.")
-            return
-
         try:
-            self.board = pymata4.Pymata4(com_port=port)
+            self.board = pymata4.Pymata4(com_port="COM4")
         except Exception as exc:
             self.log_message(f"Failed to connect: {exc}")
             self.board = None
