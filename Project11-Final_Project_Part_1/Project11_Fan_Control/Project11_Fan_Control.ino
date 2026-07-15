@@ -9,7 +9,7 @@
 const int SERVO_PIN = 7;          // Servo signal pin connected to D7
 const int FAN_ON_ANGLE = 0;       // Fixed on position for the fan
 const int FAN_OFF_ANGLE = 180;    // Optional off position if needed later
-const unsigned long STATUS_INTERVAL_MS = 1000;
+const unsigned long STATUS_INTERVAL_MS = 2000;
 
 Servo fanServo;
 unsigned long lastStatusTime = 0;
