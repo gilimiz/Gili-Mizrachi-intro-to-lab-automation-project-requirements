@@ -9,7 +9,7 @@ const uint8_t HEATER_PIN = 10; // PWM output pin controlling the heating element
 Adafruit_MAX31856 maxthermo = Adafruit_MAX31856(CS_PIN);
 
 // --- P Controller Parameters ---
-const float SETPOINT = 31.0;       // Target temperature in degrees C
+const float SETPOINT = 32.0;       // Target temperature in degrees C
 const float MAX_TEMP_LIMIT = 35.0; // Absolute safety ceiling in degrees C
 
 // Tune this parameter for your specific hardware setup:
@@ -65,15 +65,15 @@ void loop() {
       float error = SETPOINT - currentTemp;
       float output = Kp * error;
 
-      // 3. Clamp Output between 0 and 100
-      if (output > 100.0) {
-        output = 100.0;
+      // 3. Clamp Output between 0 and 50 (Max Power Limit)
+      if (output > 50.0) {
+        output = 50.0;
       } else if (output < 0.0) {
         output = 0.0;
       }
 
-      // 4. Map the 0-100 control range to Arduino PWM (0-255) and drive the heater
-      uint8_t pwmValue = map(output, 0, 100, 0, 255);
+      // 4. Map the 0-50 control range to physical Arduino PWM (0-255) and drive the heater
+      uint8_t pwmValue = map(output, 0, 50, 0, 255);
       analogWrite(HEATER_PIN, pwmValue);
 
       // 5. Diagnostics Output
@@ -81,7 +81,7 @@ void loop() {
       Serial.print(currentTemp);
       Serial.print(" C | Error: ");
       Serial.print(error);
-      Serial.print(" | Controller Output (0-100): ");
+      Serial.print(" | Controller Output (0-50): ");
       Serial.print(output);
       Serial.print(" | PWM Value (0-255): ");
       Serial.println(pwmValue);
